@@ -16,9 +16,12 @@ use App\Http\Controllers\Api\LogoutController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+Route::middleware(['api'])->group(function () {
+    /*Auth Routes*/
+    Route::post('/register', RegistrationController::class);
+});
 
-/*Auth Routes*/
-Route::post('/register', RegistrationController::class);
+
 
 
 
