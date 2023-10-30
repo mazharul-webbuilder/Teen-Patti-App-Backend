@@ -19,12 +19,10 @@ use App\Http\Controllers\Api\LogoutController;
 Route::middleware(['api'])->group(function () {
     /*Auth Routes*/
     Route::post('/register', RegistrationController::class);
+    Route::post('/login', LoginController::class);
 });
 
 
-
-
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group( function () {
+    Route::post('/logout', LogoutController::class);
 });
