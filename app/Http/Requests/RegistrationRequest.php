@@ -28,6 +28,10 @@ class RegistrationRequest extends FormRequest
             'password' => 'required|confirmed|min:6'
         ];
     }
+    /**
+     * Important Note: If You Get HTML Page in API Form Validation Error,
+     * Must check you added "Accept = application/json" in request header on postman, or you request from anywhere like vue, react
+    */
 
 
 }

@@ -16,6 +16,6 @@ class RegistrationController extends Controller
      */
     public function __invoke(RegistrationRequest $request)
     {
-        dd('hello');
+        return $request->all();
     }
 }
