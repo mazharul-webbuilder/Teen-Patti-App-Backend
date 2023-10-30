@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Hash;
 
 class RegistrationRequest extends FormRequest
 {
@@ -13,6 +14,10 @@ class RegistrationRequest extends FormRequest
     {
         return true;
     }
+    /**
+     * Important Note: If You Get HTML Page in API Form Validation Error,
+     * Must check you added "Accept = application/json" in request header on postman, or you request from anywhere like vue, react
+     */
 
     /**
      * Get the validation rules that apply to the request.
@@ -28,10 +33,15 @@ class RegistrationRequest extends FormRequest
             'password' => 'required|confirmed|min:6'
         ];
     }
-    /**
-     * Important Note: If You Get HTML Page in API Form Validation Error,
-     * Must check you added "Accept = application/json" in request header on postman, or you request from anywhere like vue, react
-    */
+
+    public function getData()
+    {
+        $data = $this->validated();
+        $data['password'] = Hash::make($data['password']);
+
+        return $data;
+    }
+
 
 
 }
