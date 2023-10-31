@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->id();
+            $table->timestamp('start_time');
+            $table->timestamp('end_time')->nullable();
+            $table->unsignedBigInteger('winning_deck_id')->nullable();
+            $table->enum('status', ['active', 'ended']);
             $table->timestamps();
         });
     }

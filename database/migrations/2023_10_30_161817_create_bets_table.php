@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('bets', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('game_id');
+            $table->unsignedBigInteger('player_id');
+            $table->unsignedBigInteger('deck_id');
+            $table->integer('bet_amount');
             $table->timestamps();
         });
     }

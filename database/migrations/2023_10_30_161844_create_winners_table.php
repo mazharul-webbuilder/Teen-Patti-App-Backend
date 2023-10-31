@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('winners', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->date('date');
+            $table->integer('total_wins')->default(0);
             $table->timestamps();
         });
     }
