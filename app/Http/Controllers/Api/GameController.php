@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\GameStartRequest;
 use App\Models\Deck;
 use App\Models\Game;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class GameController extends Controller
@@ -13,7 +14,7 @@ class GameController extends Controller
     /**
      * Will Start Game
     */
-    public function startGame(GameStartRequest $request)
+    public function startGame(GameStartRequest $request): JsonResponse
     {
         $activeGame = Game::where('status', 'active')->first();
 
