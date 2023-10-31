@@ -23,8 +23,8 @@ class GameController extends Controller
         } else {
             // If there is no active game, create a new one
             $game = new Game();
-            $game->start_time = now(); // Current time
-            $game->end_time = now()->addMinutes(1); // 1 minute from now
+            $game->start_time = now();
+            $game->end_time = now()->addMinutes(1);
             $game->status = 'active';
 
             $game->save();
