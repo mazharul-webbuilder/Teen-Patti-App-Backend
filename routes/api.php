@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\RegistrationController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\LogoutController;
+use App\Http\Controllers\Api\GameController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +26,6 @@ Route::middleware(['api'])->group(function () {
 
 Route::middleware('auth:sanctum')->group( function () {
     Route::post('/logout', LogoutController::class);
+    /*Game Routes*/
+    Route::post('/start-game', [GameController::class, 'startGame']);
 });
